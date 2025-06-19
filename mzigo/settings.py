@@ -33,7 +33,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'myapi_project.urls'
+ROOT_URLCONF = 'mzigo.urls'
 
 TEMPLATES = [
     {
@@ -51,7 +51,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myapi_project.wsgi.application'
+WSGI_APPLICATION = 'mzigo.wsgi.application'
 
 # Database
 DATABASES = {

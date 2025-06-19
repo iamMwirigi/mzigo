@@ -1,2 +1,2 @@
 djangorestframework
-gunicorn
+gunicorn mzigo.wsgi

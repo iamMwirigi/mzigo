@@ -20,3 +20,6 @@ class AppFieldUser(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = 'app_field_user'

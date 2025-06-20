@@ -5,6 +5,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
 import datetime
+from rest_framework import generics
+from .models import AppFieldUser
+from .serializers import AppFieldUserSerializer
 
 @api_view(['GET'])
 def hello_world(request):
@@ -32,17 +35,13 @@ def api_status(request):
     })
 
 # Example class-based views for CRUD operations
-# from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-# from .models import Item
-# from .serializers import ItemSerializer
+class AppFieldUserListCreateView(generics.ListCreateAPIView):
+    queryset = AppFieldUser.objects.all()
+    serializer_class = AppFieldUserSerializer
 
-# class ItemListCreateView(ListCreateAPIView):
-#     queryset = Item.objects.all()
-#     serializer_class = ItemSerializer
-
-# class ItemDetailView(RetrieveUpdateDestroyAPIView):
-#     queryset = Item.objects.all()
-#     serializer_class = ItemSerializer
+class AppFieldUserDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AppFieldUser.objects.all()
+    serializer_class = AppFieldUserSerializer
 
 # Example ViewSet
 # from rest_framework.viewsets import ModelViewSet

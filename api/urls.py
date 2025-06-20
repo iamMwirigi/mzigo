@@ -15,6 +15,6 @@ urlpatterns = [
     # Custom API endpoints
     path('hello/', views.hello_world, name='hello_world'),
     path('status/', views.api_status, name='api_status'),
-    
-
+    path('app_field_user/', views.AppFieldUserListCreateView.as_view(), name='app_field_user_list_create'),
+    path('app_field_user/<int:pk>/', views.AppFieldUserDetailView.as_view(), name='app_field_user_detail'),
 ]

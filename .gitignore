@@ -60,3 +60,4 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+mzigo_ke.sql

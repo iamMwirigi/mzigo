@@ -2,6 +2,7 @@
 
 import os
 from pathlib import Path
+import pymysql
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -56,8 +57,12 @@ WSGI_APPLICATION = 'mzigo.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME', 'mzigo_ke'),
+        'USER': os.environ.get('DB_USER', 'dev_ops1'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'a26N8Iv22TC4kJdb'),
+        'HOST': os.environ.get('DB_HOST', 'db.igurudb.com'),
+        'PORT': os.environ.get('DB_PORT', '3306'),
     }
 }
 
@@ -103,3 +108,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
 }
+
+pymysql.install_as_MySQLdb()
